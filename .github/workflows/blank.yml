@@ -1,25 +1,12 @@
 name : simple hello world
-on: 
- push:
-   branches:
-     - main
-     - release
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-       - name: build step
-         run: echo "build ${{vars.MY_NAME}}"
-  test:
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
-        - name: test
-          run: echo "test job"
-  deploy:
-     runs-on: ubuntu-latest
-     needs: test
-     steps:
-       - name: deploy stage
-         run: echo "deploy step"
+       - name: checkout the code
+         uses: actions/checkout@v3
+       - name: print the file
+         run: cat index.html
+
          
