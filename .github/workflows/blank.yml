@@ -7,6 +7,6 @@ jobs:
        - name: checkout the code
          uses: actions/checkout@v4
        - name: print the file
-         run: cat index.html
+         run: psw
 
          
